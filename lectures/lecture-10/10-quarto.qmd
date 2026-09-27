@@ -64,6 +64,34 @@ A new module starts today: [can anyone check your work?]{.alert}
 :::
 :::
 
+## Keep your copy of the course up to date
+
+:::{style="margin-top: 40px; font-size: 25px;"}
+:::{.columns}
+:::{.column width="55%"}
+- Did you [fork]{.alert} the course repository? Your fork does not update by itself
+- Please [sync it often!]{.alert} 🤓
+- On GitHub: open your fork, click [Sync fork]{.alert}, then [Update branch]{.alert}
+- Then, in your terminal, inside your local copy: `git pull`
+- Did you clone the repository directly? Then `git pull` is enough
+- Keep your own work in a separate folder, so a sync never clashes with it
+:::
+
+:::{.column width="45%"}
+The same from the terminal, with the `gh` CLI:
+
+```bash
+# Update your fork on GitHub
+gh repo sync your-username/datasci350
+
+# Update the copy on your laptop
+cd datasci350
+git pull
+```
+:::
+:::
+:::
+
 ## Tweets of the day
 
 :::{style="margin-top: 30px; font-size: 22px; text-align: center;"}
