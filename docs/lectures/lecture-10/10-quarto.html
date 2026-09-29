@@ -265,6 +265,7 @@ Danilo Freire
 </div><div class="column" style="width:50%;">
 <div style="text-align: center;">
 <p><a href="#/" data-modal-type="image" data-modal-url="figures/quarto.png"><img data-src="figures/quarto.png" style="width:100.0%"></a></p>
+<p><a href="https://quarto.org/" class="uri">https://quarto.org/</a></p>
 </div>
 </div></div>
 </div>
@@ -359,8 +360,8 @@ Danilo Freire
 </div>
 <ul>
 <li><a href="https://www.science.org/doi/10.1126/science.aac4716">Open Science Collaboration (2015)</a>: 270 researchers re-ran 100 psychology experiments</li>
-<li>Originals: 97% significant. Replications: <span class="alert">36%</span>, with effects halved</li>
-<li>Journals responded with pre-registration, open data and registered reports</li>
+<li>Replications: <span class="alert">36%</span> significant, <span class="alert">39%</span> rated as replicated</li>
+<li>Journals responded with <a href="https://doi.org/10.1073/pnas.1708274114">pre-registration</a>, <a href="https://en.wikipedia.org/wiki/Open_data">open data</a> and <a href="https://doi.org/10.1038/s41562-021-01193-7">registered reports</a></li>
 </ul>
 </div></div>
 </div>
@@ -452,7 +453,7 @@ Danilo Freire
 <section id="what-a-reproducible-project-needs" class="slide level2 scrollable">
 <h2>What a reproducible project needs</h2>
 <div style="margin-top: 30px; font-size: 26px;">
-<p>A result is reproducible only if <span class="alert">all four of these travel together</span>:</p>
+<p>A result is reproducible only if others can get <span class="alert">all four of these</span>:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
@@ -640,18 +641,18 @@ Danilo Freire
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Without a seed, every run gives new numbers:</p>
-<div id="0c848e44" class="cell" data-execution_count="1">
+<div id="8c58f97f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a><span class="bu">print</span>(np.random.normal(size<span class="op">=</span><span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span>
 <span id="cb8-4"><a></a><span class="bu">print</span>(np.random.normal(size<span class="op">=</span><span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[-0.013 -1.421  0.338]
-[0.548 0.2   1.21 ]</code></pre>
+<pre><code>[ 1.221 -0.07   1.372]
+[-1.314 -1.824 -2.203]</code></pre>
 </div>
 </div>
 <p>With a seed, everyone gets the same sequence:</p>
-<div id="5daafa4a" class="cell" data-execution_count="2">
+<div id="269f5a4f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>np.random.seed(<span class="dv">350</span>)</span>
 <span id="cb10-2"><a></a><span class="bu">print</span>(np.random.normal(size<span class="op">=</span><span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span>
 <span id="cb10-3"><a></a></span>
@@ -689,7 +690,7 @@ Danilo Freire
 <li>Record your versions so others can match them</li>
 </ul>
 <p>At minimum, note them in your README:</p>
-<div id="d5b70382" class="cell" data-execution_count="3">
+<div id="13227cd3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> sys, numpy, pandas</span>
 <span id="cb13-2"><a></a></span>
 <span id="cb13-3"><a></a><span class="bu">print</span>(<span class="st">"python:"</span>, sys.version.split()[<span class="dv">0</span>])</span>
@@ -863,7 +864,7 @@ flowchart LR
 <div style="margin-top: 30px; font-size: 23px;">
 <ul>
 <li>Download the installer from the <a href="https://quarto.org/docs/download/">Quarto website</a>, or use a package manager</li>
-<li>On macOS, with <a href="https://brew.sh/">Homebrew</a>:</li>
+<li>On macOS, with <a href="https://formulae.brew.sh/cask/quarto#default">Homebrew</a>:</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -892,8 +893,8 @@ flowchart LR
 </div>
 </div>
 </section>
-<section id="did-it-work-ask-quarto-itself" class="slide level2">
-<h2>Did it work? Ask Quarto itself</h2>
+<section id="did-it-work-run-quarto-check" class="slide level2">
+<h2>Did it work? Run <code>quarto check</code></h2>
 <div style="margin-top: 30px; font-size: 22px;">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -915,7 +916,7 @@ flowchart LR
 <span id="cb21-12"><a></a>[✓] Checking Python 3 installation....OK</span>
 <span id="cb21-13"><a></a>      Version: 3.13.13</span>
 <span id="cb21-14"><a></a>      Jupyter: 5.9.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Run this first when something breaks. Your versions will differ from mine</p>
+<p>Run this first when something breaks. Your versions may differ from mine</p>
 </div>
 </section>
 <section id="write-in-whatever-editor-you-like" class="slide level2">
@@ -967,7 +968,7 @@ flowchart LR
 <span id="cb22-17"><a></a><span class="ex">quarto</span> preview report.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<div class="fragment" style="margin-top: 30px;">
+<div style="margin-top: 30px;">
 <ul>
 <li><span class="alert"><code>render</code></span> builds the document once, when you are done</li>
 <li><span class="alert"><code>preview</code></span> keeps a live version open while you write</li>
@@ -1022,7 +1023,7 @@ flowchart LR
 <span id="cb23-12"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>YAML stands for “YAML Ain’t Markup Language” (a recursive joke). It describes <span class="alert">data</span></li>
+<li><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> stands for “YAML Ain’t Markup Language” (a recursive joke). It holds the document’s <span class="alert">metadata</span> and settings</li>
 <li>It sits at the top, between two <code>---</code> lines</li>
 <li><code>key: value</code> pairs, where <span class="alert">indentation creates nesting</span>. Use spaces: tabs are illegal for indentation</li>
 <li><code>format: html</code> is the short form. Indent under it to add options</li>
@@ -1055,6 +1056,7 @@ flowchart LR
 <li>On render, the chunk <span class="alert">runs</span> and its output goes into the document</li>
 <li><code>#|</code> lines are <span class="alert">chunk options</span>, in YAML syntax</li>
 <li>Here they label the figure and hide the code and warnings</li>
+<li><a href="https://quarto.org/docs/computations/execution-options.html">More here</a></li>
 </ul>
 </div></div>
 </div>
@@ -1139,7 +1141,7 @@ flowchart LR
 <span id="cb26-10"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:54%;">
 <p>What the reader sees:</p>
-<div id="e9a39efe" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="4">
+<div id="f091cbae" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="10-quarto_files/figure-revealjs/cell-5-output-1.png" width="373"></p>
@@ -1303,7 +1305,7 @@ flowchart LR
 <ul>
 <li>The reproducibility crisis is real. Most computational results fail because <span class="alert">the code does not run</span></li>
 <li>The ladder: re-runnable → reproducible → reusable → replicable. This course gets you to step two</li>
-<li><span class="alert">Code, data, environment and documentation</span> travel together</li>
+<li><span class="alert">Code, data, environment and documentation</span> must all be shared</li>
 <li>Habits: untouched raw data, cleaning in code, relative paths, seeds, recorded versions, a README</li>
 <li><span class="alert">Literate programming</span> keeps text, code and results in one file</li>
 <li><span class="alert">Quarto</span> is our tool: one plain-text <code>.qmd</code>, one <code>render</code> command, many formats</li>
@@ -1409,7 +1411,7 @@ flowchart LR
 </div><div class="column" style="width:45%;">
 <p><code>#| echo: false</code> hides the code and keeps the output, as task 5 asked.</p>
 <p>The chart your second chunk produces:</p>
-<div id="5a67e5d5" class="cell" data-execution_count="5">
+<div id="a314dd3c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>

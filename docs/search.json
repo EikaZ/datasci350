@@ -2937,7 +2937,7 @@
     "href": "lectures/lecture-10/10-quarto.html#todays-lecture",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Today’s lecture",
-    "text": "Today’s lecture\n\n\n\nA new module starts today: can anyone check your work?\n\nThe reproducibility crisis: why published research often fails when re-run\nHabits that prevent it: project structure, raw data, paths, seeds, environments\nLiterate programming: text, code and results in one file\nQuarto: installing it and writing your first document\nNext class: PDFs, citations, websites and parameterised reports"
+    "text": "Today’s lecture\n\n\n\nA new module starts today: can anyone check your work?\n\nThe reproducibility crisis: why published research often fails when re-run\nHabits that prevent it: project structure, raw data, paths, seeds, environments\nLiterate programming: text, code and results in one file\nQuarto: installing it and writing your first document\nNext class: PDFs, citations, websites and parameterised reports\n\n\n\n\nhttps://quarto.org/"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#the-reproducibility-crisis",
@@ -2951,7 +2951,7 @@
     "href": "lectures/lecture-10/10-quarto.html#how-bad-is-it-two-famous-papers",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "How bad is it? Two famous papers",
-    "text": "How bad is it? Two famous papers\n\n\n\nMedicine\n\n\n\n\nIoannidis (2005), one of the most cited papers in medicine\nFor most study designs, a positive finding is more likely false than true\nCauses: small samples, flexible analyses, financial interests, many teams chasing one question\n\n\nPsychology\n\n\n\n\nOpen Science Collaboration (2015): 270 researchers re-ran 100 psychology experiments\nOriginals: 97% significant. Replications: 36%, with effects halved\nJournals responded with pre-registration, open data and registered reports"
+    "text": "How bad is it? Two famous papers\n\n\n\nMedicine\n\n\n\n\nIoannidis (2005), one of the most cited papers in medicine\nFor most study designs, a positive finding is more likely false than true\nCauses: small samples, flexible analyses, financial interests, many teams chasing one question\n\n\nPsychology\n\n\n\n\nOpen Science Collaboration (2015): 270 researchers re-ran 100 psychology experiments\nReplications: 36% significant, 39% rated as replicated\nJournals responded with pre-registration, open data and registered reports"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#we-all-write-code-so-we-are-fine-right",
@@ -3021,7 +3021,7 @@
     "href": "lectures/lecture-10/10-quarto.html#randomness-needs-a-seed",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Randomness needs a seed",
-    "text": "Randomness needs a seed\n\n\n\nWithout a seed, every run gives new numbers:\n\nimport numpy as np\n\nprint(np.random.normal(size=3).round(3))\nprint(np.random.normal(size=3).round(3))\n\n[-0.013 -1.421  0.338]\n[0.548 0.2   1.21 ]\n\n\nWith a seed, everyone gets the same sequence:\n\nnp.random.seed(350)\nprint(np.random.normal(size=3).round(3))\n\nnp.random.seed(350)\nprint(np.random.normal(size=3).round(3))\n\n[ 1.697 -0.533 -0.311]\n[ 1.697 -0.533 -0.311]\n\n\n\n\nnp.random is not truly random. It is a pseudorandom generator: a formula that walks a fixed sequence\nThe seed sets the starting point, which fixes the whole sequence\nNewer code uses a generator object:\n\nrng = np.random.default_rng(350)\nrng.normal(size=3)\n\nPython’s random has its own generator. scikit-learn needs random_state=\nRandomness hides in sampling, train-test splits and model starting weights\nSeed every random draw"
+    "text": "Randomness needs a seed\n\n\n\nWithout a seed, every run gives new numbers:\n\nimport numpy as np\n\nprint(np.random.normal(size=3).round(3))\nprint(np.random.normal(size=3).round(3))\n\n[ 1.221 -0.07   1.372]\n[-1.314 -1.824 -2.203]\n\n\nWith a seed, everyone gets the same sequence:\n\nnp.random.seed(350)\nprint(np.random.normal(size=3).round(3))\n\nnp.random.seed(350)\nprint(np.random.normal(size=3).round(3))\n\n[ 1.697 -0.533 -0.311]\n[ 1.697 -0.533 -0.311]\n\n\n\n\nnp.random is not truly random. It is a pseudorandom generator: a formula that walks a fixed sequence\nThe seed sets the starting point, which fixes the whole sequence\nNewer code uses a generator object:\n\nrng = np.random.default_rng(350)\nrng.normal(size=3)\n\nPython’s random has its own generator. scikit-learn needs random_state=\nRandomness hides in sampling, train-test splits and model starting weights\nSeed every random draw"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#record-your-environment",
@@ -3098,14 +3098,14 @@
     "href": "lectures/lecture-10/10-quarto.html#the-yaml-header",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "The YAML header",
-    "text": "The YAML header\n\n\n\n---\ntitle: \"Rainfall report\"\nauthor: \"Your name\"\ndate: 2026-10-06\nformat:\n  html:\n    toc: true\n    code-fold: true\nexecute:\n  warning: false\njupyter: python3\n---\n\n\nYAML stands for “YAML Ain’t Markup Language” (a recursive joke). It describes data\nIt sits at the top, between two --- lines\nkey: value pairs, where indentation creates nesting. Use spaces: tabs are illegal for indentation\nformat: html is the short form. Indent under it to add options\nexecute: sets defaults for every chunk\nQuote values that contain a colon: title: \"Quarto: a first look\"\n_quarto.yml, GitHub Actions and Docker Compose use the same syntax"
+    "text": "The YAML header\n\n\n\n---\ntitle: \"Rainfall report\"\nauthor: \"Your name\"\ndate: 2026-10-06\nformat:\n  html:\n    toc: true\n    code-fold: true\nexecute:\n  warning: false\njupyter: python3\n---\n\n\nYAML stands for “YAML Ain’t Markup Language” (a recursive joke). It holds the document’s metadata and settings\nIt sits at the top, between two --- lines\nkey: value pairs, where indentation creates nesting. Use spaces: tabs are illegal for indentation\nformat: html is the short form. Indent under it to add options\nexecute: sets defaults for every chunk\nQuote values that contain a colon: title: \"Quarto: a first look\"\n_quarto.yml, GitHub Actions and Docker Compose use the same syntax"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#code-chunks",
     "href": "lectures/lecture-10/10-quarto.html#code-chunks",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Code chunks",
-    "text": "Code chunks\n\n\n\n```{python}\n#| label: fig-rainfall\n#| echo: false\n#| warning: false\n\nimport matplotlib.pyplot as plt\n\nplt.bar(rain[\"month\"], rain[\"mm\"])\nplt.ylabel(\"Rainfall (mm)\")\nplt.show()\n```\n\n\nThree backticks and {python} open a chunk; three backticks close it\nOn render, the chunk runs and its output goes into the document\n#| lines are chunk options, in YAML syntax\nHere they label the figure and hide the code and warnings"
+    "text": "Code chunks\n\n\n\n```{python}\n#| label: fig-rainfall\n#| echo: false\n#| warning: false\n\nimport matplotlib.pyplot as plt\n\nplt.bar(rain[\"month\"], rain[\"mm\"])\nplt.ylabel(\"Rainfall (mm)\")\nplt.show()\n```\n\n\nThree backticks and {python} open a chunk; three backticks close it\nOn render, the chunk runs and its output goes into the document\n#| lines are chunk options, in YAML syntax\nHere they label the figure and hide the code and warnings\nMore here"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#the-chunk-options-you-will-use-most",
@@ -6934,7 +6934,7 @@
     "href": "lectures/lecture-10/10-quarto.html#what-a-reproducible-project-needs",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "What a reproducible project needs",
-    "text": "What a reproducible project needs\n\nA result is reproducible only if all four of these travel together:\n\n\n\nCode: every step from raw data to final number, runnable\nData: the raw inputs, or a script that fetches them\n\n\n\nEnvironment: the language and package versions\nDocumentation: what the project does and the run order\n\n\n\nLeave one out and it fails:\n\nNo data: readers cannot check your code\nNo environment: it runs today and breaks next year\nNo documentation: nobody knows which script runs first"
+    "text": "What a reproducible project needs\n\nA result is reproducible only if others can get all four of these:\n\n\n\nCode: every step from raw data to final number, runnable\nData: the raw inputs, or a script that fetches them\n\n\n\nEnvironment: the language and package versions\nDocumentation: what the project does and the run order\n\n\n\nLeave one out and it fails:\n\nNo data: readers cannot check your code\nNo environment: it runs today and breaks next year\nNo documentation: nobody knows which script runs first"
   },
   {
     "objectID": "lectures/lecture-10/10-quarto.html#rendering-from-the-terminal",
@@ -7270,6 +7270,13 @@
     "href": "lectures/lecture-10/10-quarto.html#summary-1",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Summary",
-    "text": "Summary\n\n\nThe reproducibility crisis is real. Most computational results fail because the code does not run\nThe ladder: re-runnable → reproducible → reusable → replicable. This course gets you to step two\nCode, data, environment and documentation travel together\nHabits: untouched raw data, cleaning in code, relative paths, seeds, recorded versions, a README\nLiterate programming keeps text, code and results in one file\nQuarto is our tool: one plain-text .qmd, one render command, many formats"
+    "text": "Summary\n\n\nThe reproducibility crisis is real. Most computational results fail because the code does not run\nThe ladder: re-runnable → reproducible → reusable → replicable. This course gets you to step two\nCode, data, environment and documentation must all be shared\nHabits: untouched raw data, cleaning in code, relative paths, seeds, recorded versions, a README\nLiterate programming keeps text, code and results in one file\nQuarto is our tool: one plain-text .qmd, one render command, many formats"
+  },
+  {
+    "objectID": "lectures/lecture-10/10-quarto.html#did-it-work-run-quarto-check",
+    "href": "lectures/lecture-10/10-quarto.html#did-it-work-run-quarto-check",
+    "title": "DATASCI 350 - Data Science Computing",
+    "section": "Did it work? Run quarto check",
+    "text": "Did it work? Run quarto check\n\n\n\nTerminal\n\nquarto check\n\nQuarto 1.10.18\n[✓] Checking environment information...\n[✓] Checking versions of quarto binary dependencies...\n      Pandoc version 3.10: OK\n      Dart Sass version 1.101.0: OK\n[✓] Checking Quarto installation......OK\n      Version: 1.10.18\n[✓] Checking tools....................OK\n      TinyTeX: v2026.04\n[✓] Checking LaTeX....................OK\n[✓] Checking basic markdown render....OK\n[✓] Checking Python 3 installation....OK\n      Version: 3.13.13\n      Jupyter: 5.9.1\nRun this first when something breaks. Your versions may differ from mine"
   }
 ]

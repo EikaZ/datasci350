@@ -59,6 +59,8 @@ A new module starts today: [can anyone check your work?]{.alert}
 :::{.column width="50%"}
 :::{style="text-align: center;"}
 [![](figures/quarto.png){width="100%"}](#){data-modal-type="image" data-modal-url="figures/quarto.png"}
+
+<https://quarto.org/>
 :::
 :::
 :::
@@ -166,8 +168,8 @@ Amy Cuddy's "power posing": 78 million TED views, [but its hormone effects faile
 :::
 
 - [Open Science Collaboration (2015)](https://www.science.org/doi/10.1126/science.aac4716): 270 researchers re-ran 100 psychology experiments
-- Originals: 97% significant. Replications: [36%]{.alert}, with effects halved
-- Journals responded with pre-registration, open data and registered reports
+- Replications: [36%]{.alert} significant, [39%]{.alert} rated as replicated
+- Journals responded with [pre-registration](https://doi.org/10.1073/pnas.1708274114), [open data](https://en.wikipedia.org/wiki/Open_data) and [registered reports](https://doi.org/10.1038/s41562-021-01193-7)
 :::
 :::
 :::
@@ -270,7 +272,7 @@ In one large study, most deposited R files did not clear the first step
 ## What a reproducible project needs
 
 :::{style="margin-top: 30px; font-size: 26px;"}
-A result is reproducible only if [all four of these travel together]{.alert}:
+A result is reproducible only if others can get [all four of these]{.alert}:
 
 :::{.columns}
 :::{.column width="50%"}
@@ -670,7 +672,7 @@ flowchart LR
 
 :::{style="margin-top: 30px; font-size: 23px;"}
 - Download the installer from the [Quarto website](https://quarto.org/docs/download/), or use a package manager
-- On macOS, with [Homebrew](https://brew.sh/):
+- On macOS, with [Homebrew](https://formulae.brew.sh/cask/quarto#default):
 
 ```{.bash filename="Terminal"}
 brew install --cask quarto
@@ -690,7 +692,7 @@ quarto install tinytex
 ```
 :::
 
-## Did it work? Ask Quarto itself
+## Did it work? Run `quarto check`
 
 :::{style="margin-top: 30px; font-size: 22px;"}
 ```{.bash filename="Terminal"}
@@ -714,7 +716,7 @@ Quarto 1.10.18
       Jupyter: 5.9.1
 ```
 
-Run this first when something breaks. Your versions will differ from mine
+Run this first when something breaks. Your versions may differ from mine
 :::
 
 ## Write in whatever editor you like
@@ -767,7 +769,7 @@ quarto preview report.qmd
 ```
 :::
 
-:::{.fragment style="margin-top: 30px;"}
+:::{style="margin-top: 30px;"}
 - [`render`]{.alert} builds the document once, when you are done
 - [`preview`]{.alert} keeps a live version open while you write
 - Output lands next to the source (`report.qmd` → `report.html`), unless a project sets `output-dir`
@@ -813,7 +815,7 @@ jupyter: python3
 :::
 
 :::{.column width="50%"}
-- YAML stands for "YAML Ain't Markup Language" (a recursive joke). It describes [data]{.alert}
+- [YAML](https://en.wikipedia.org/wiki/YAML) stands for "YAML Ain't Markup Language" (a recursive joke). It holds the document's [metadata]{.alert} and settings
 - It sits at the top, between two `---` lines
 - `key: value` pairs, where [indentation creates nesting]{.alert}. Use spaces: tabs are illegal for indentation
 - `format: html` is the short form. Indent under it to add options
@@ -849,6 +851,7 @@ plt.show()
 - On render, the chunk [runs]{.alert} and its output goes into the document
 - `#|` lines are [chunk options]{.alert}, in YAML syntax
 - Here they label the figure and hide the code and warnings
+- [More here](https://quarto.org/docs/computations/execution-options.html)
 :::
 :::
 :::
@@ -1107,7 +1110,7 @@ Stuck? See the chunk options slide. `quarto check` diagnoses a broken installati
 :::{style="margin-top: 30px; font-size: 26px;"}
 - The reproducibility crisis is real. Most computational results fail because [the code does not run]{.alert}
 - The ladder: re-runnable → reproducible → reusable → replicable. This course gets you to step two
-- [Code, data, environment and documentation]{.alert} travel together
+- [Code, data, environment and documentation]{.alert} must all be shared
 - Habits: untouched raw data, cleaning in code, relative paths, seeds, recorded versions, a README
 - [Literate programming]{.alert} keeps text, code and results in one file
 - [Quarto]{.alert} is our tool: one plain-text `.qmd`, one `render` command, many formats
