@@ -3259,7 +3259,7 @@
     "href": "lectures/lecture-11/11-more-quarto.html#the-problem-with-re-rendering",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "The problem with re-rendering",
-    "text": "The problem with re-rendering\n\n\n\n\nYou finish a report in October. In November you fix a typo and render again\nMeanwhile, a new pandas release changed one default\nYou edited one character. Three numbers in the results table changed\nA colleague asks why their printed copy disagrees with the website\n\n\nRendering re-computes: every render re-runs every chunk, changed or not\n\n\n\n\nYour document did not change. Its surroundings did:\nA package upgrade changes a default\nAn API returns today’s data instead of October’s\nA random draw with no seed\nCode that reads the clock or today’s date\nA different machine with different versions\n\n\nWe want controlled re-execution: code re-runs only when the source changes"
+    "text": "The problem with re-rendering\n\n\n\n\nYou finish a report today, then fix a typo next month and render again\nIn the meantime, a new pandas release changed one default\nYou changed one character, but three numbers in the results table changed\nA colleague’s printed copy no longer matches the website\n\n\nEach render re-runs every code chunk, including the ones you did not edit\n\n\n\n\nResults can change even when your code does not\nA package upgrade changes a default\nAn API returns today’s data, not October’s\nA random draw has no seed\nThe code reads today’s date\nSomeone renders on a machine with different versions\n\n\nWe want code to re-run only when the source changes"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#freeze-re-run-only-when-the-source-changes",
@@ -3273,14 +3273,14 @@
     "href": "lectures/lecture-11/11-more-quarto.html#what-freeze-does-and-does-not-do",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "What freeze does and does not do",
-    "text": "What freeze does and does not do\n\n\n\nWhat it does\n\nControls when your code runs again\nKeeps October’s results until you touch the source\nStops accidental re-computation\nMakes a render fast and predictable\n\n\nWhat it does not do\n\nControl what your code runs with\nSurvive deleting _freeze/\nProtect a machine with other package versions\nPin pandas to the version you tested\n\n\n\nSo freeze postpones the problem. Module 08 pins the environment with uv and containers. Until then, use freeze: auto, commit _freeze/, and list your versions in the README"
+    "text": "What freeze does and does not do\n\n\n\nWhat it does\n\nControls when your code runs again\nKeeps today’s results until you touch the source\nStops accidental re-computation\nMakes a render fast and predictable\n\n\nWhat it does not do\n\nControl what your code runs with\nSurvive deleting _freeze/\nProtect a machine with other package versions\nPin pandas to the version you tested\n\n\n\nSo freeze postpones the problem. Module 08 pins the environment with uv and containers. Until then, use freeze: auto, commit _freeze/, and list your versions in the README"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#slides-with-reveal.js",
     "href": "lectures/lecture-11/11-more-quarto.html#slides-with-reveal.js",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Slides with reveal.js",
-    "text": "Slides with reveal.js\n\n\n\n\nQuarto makes slides with reveal.js, an HTML presentation framework\nThese slides are Quarto + reveal.js!\nWhy not PowerPoint?\n\nPlain text: diffs, version control, readable merge conflicts\nCode runs in the slides: charts update with the data\nMany formats: the same .qmd can become a PDF handout\nFree hosting: push to GitHub, share a link\n\nYour first deck takes longer than dragging boxes. Your 50th is no harder than your 2nd\n\n\n\nThe YAML sets the format; headings do the rest:\ntitle: \"My Presentation\"\nauthor: \"Your Name\"\nformat:\n  revealjs:\n    embed-resources: true\n\n# starts a section, ## starts a new slide\nembed-resources: true puts images and fonts into one self-contained file\n::: fenced divs handle layout: columns, centred text, font sizes\nChunks, images, tables and citations work as in a report\nFull reference: Quarto reveal.js docs"
+    "text": "Slides with reveal.js\n\n\n\n\nQuarto makes slides with reveal.js, an HTML presentation framework\nThese slides are Quarto + reveal.js!\nWhy not PowerPoint?\n\nPlain text: diffs, version control, readable merge conflicts\nCode runs in the slides: charts update with the data\nMany formats: the same .qmd can become a PDF handout\nFree hosting: push to GitHub, share a link\n\n\n\n\nThe YAML sets the format:\ntitle: \"My Presentation\"\nauthor: \"Your Name\"\nformat:\n  revealjs:\n    embed-resources: true\n\n# starts a section, ## starts a new slide\nembed-resources: true puts images and fonts into one self-contained file\n::: fenced divs handle layout: columns, centred text, font sizes\nChunks, images, tables and citations work as in a report\nFull reference: Quarto reveal.js docs"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#two-decks-to-learn-from",
@@ -3350,28 +3350,28 @@
     "href": "lectures/lecture-11/11-more-quarto.html#what-it-produces",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "What it produces",
-    "text": "What it produces\n\n\n\nRendered with the default, country = \"Brazil\":\n\n\n\n\n\n\n\nYear\nGDP per capita (US$)\nLife expectancy\n\n\n\n\n2019\n9,030\n75.8\n\n\n2020\n7,074\n74.5\n\n\n2021\n7,972\n73.0\n\n\n2022\n9,281\n74.9\n\n\n2023\n10,378\n75.8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo of the ten countries. The report draws one, chosen by the parameter"
+    "text": "What it produces\n\n\n\nRendered with the default, country = \"Brazil\":\n\n\n\n\n\n\n\nYear\nGDP per capita (US$)\nLife expectancy\n\n\n\n\n2019\n9,030\n75.8\n\n\n2020\n7,074\n74.5\n\n\n2021\n7,972\n73.0\n\n\n2022\n9,281\n74.9\n\n\n2023\n10,378\n75.8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLife expectancy at birth, Brazil"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#from-one-report-to-a-pipeline",
     "href": "lectures/lecture-11/11-more-quarto.html#from-one-report-to-a-pipeline",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "From one report to a pipeline",
-    "text": "From one report to a pipeline\n\n\n\nOne country, with its own file name:\n\n\nTerminal\n\nquarto render report.qmd -P country:Uruguay \\\n  --output profile-Uruguay.html\n\nOr all of them, with the shell loop from module 02:\n\n\nTerminal\n\nfor c in Brazil Mexico Uruguay; do\n  quarto render report.qmd \\\n    -P country:\"$c\" \\\n    --output \"profile-$c.html\"\ndone\n\nThree renders, three files:\nprofile-Brazil.html\nprofile-Mexico.html\nprofile-Uruguay.html\n\n\n\nTen or a hundred countries: same loop, longer list\nQuote \"$c\": two of the ten names contain a space\nWithout --output, every render overwrites report.html\nFind a mistake, fix one file, run the loop again\nCompanies do the same, with the loop on a schedule\n\n\nYour final project has this shape: one repository, one analysis, many countries"
+    "text": "From one report to a pipeline\n\n\n\nOne country, with its own file name:\n\n\nTerminal\n\nquarto render report.qmd -P country:Uruguay \\\n  --output profile-Uruguay.html\n\nOr all of them, with the shell loop from module 02:\n\n\nTerminal\n\nfor c in Brazil Mexico Uruguay; do\n  quarto render report.qmd \\\n    -P country:\"$c\" \\\n    --output \"profile-$c.html\"\ndone\n\nThree renders, three files:\nprofile-Brazil.html\nprofile-Mexico.html\nprofile-Uruguay.html\n\n\n\nTen or a hundred countries: same loop, longer list\nQuote \"$c\": two of the ten names in the dataset contain a space (e.g., “United States”)\nWithout --output, every render overwrites report.html\nWithout the tags: [parameters] cell, every file shows the default country\nFind a mistake or update the data, change one file, run the loop again\nCompanies do the same, with the loop on a schedule\n\n\nYour final project has this shape: one repository, one analysis, many countries"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#sec-exercise-02",
     "href": "lectures/lecture-11/11-more-quarto.html#sec-exercise-02",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Try it yourself, again!",
-    "text": "Try it yourself, again!\n\n\n\nDownload the report and run it from the terminal.\n\nDownload report.qmd and country_profiles.csv\nPut report.qmd in a new folder. Put the CSV in a data folder beside it\nRender the file with no options. You get Brazil\nRender it again for Japan. Give the output its own file name\nOpen both HTML files. The heading, table and chart changed\nRender one more country whose name contains a space\n\n\n\nOr download both from the terminal:\n\n\nTerminal\n\nBASE=https://raw.githubusercontent.com/danilofreire/datasci350/main/lectures/lecture-11\n\ncurl -O $BASE/report.qmd\nmkdir data\ncurl -o data/country_profiles.csv \\\n  $BASE/data/country_profiles.csv\n\nHints:\n\nThe flag is -P, and it takes name:value\nWithout --output, your second render writes over the first\nThe CSV lists all ten countries. Two of the names contain a space\n\n\nSolution"
+    "text": "Try it yourself, again!\n\n\n\nDownload the report and run it from the terminal.\n\nDownload report.qmd and country_profiles.csv\nPut report.qmd in a new folder. Put the CSV in a data folder beside it\nRender the file with no options. You get Brazil\nRender it again for Japan. Give the output its own file name\nOpen both HTML files. The heading, table and chart changed\nRender one more country whose name contains a space (e.g, “South Africa”). Give it its own file name, too\n\n\n\nOr download both from the terminal:\n\n\nTerminal\n\nBASE=https://raw.githubusercontent.com/danilofreire/datasci350/main/lectures/lecture-11\n\ncurl -O $BASE/report.qmd\nmkdir data\ncurl -o data/country_profiles.csv \\\n  $BASE/data/country_profiles.csv\n\nHints:\n\nThe flag is -P, and it takes name:value\nWithout --output, your second render writes over the first\nThe CSV lists all ten countries. Two of the names contain a space\n\n\nSolution"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#when-the-render-fails",
     "href": "lectures/lecture-11/11-more-quarto.html#when-the-render-fails",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "When the render fails",
-    "text": "When the render fails\n\n\n\nThree errors you will see this term:\n\n\nTerminal\n\n  Cell 1/1: ''...ERROR\nModuleNotFoundError: No module named 'geopandas'\n\n\n\nTerminal\n\nERROR: YAMLException: bad indentation of\na mapping entry (2:14)\n 2 | title: Quarto: a first look\n------------------^\n\n\n\nTerminal\n\ncompilation failed- error\nUndefined control sequence.\nl.172 ...bad command: \\(\\notarealcommand\n\n\n\nRead Python errors from the bottom. The last line names the problem\nQuarto names the cell that broke\nA missing module usually means Quarto runs a different Python\nRead YAML errors from the top. The caret points at line 2, column 14: the unquoted colon\nIgnore the stack trace below it\nIn LaTeX errors, l.172 is a line in the generated .tex, not your .qmd\nThe text beside it is yours, so search your file for it\nRender often, so the newest change is the likely culprit"
+    "text": "When the render fails\n\n\n\n\n\n\nTerminal\n\n  Cell 1/1: ''...ERROR\nModuleNotFoundError: No module named 'geopandas'\n\n\n\n\nPython error: read it from the bottom. The last line names the problem\nCell 1/1 tells you which cell broke\nA missing module usually means Quarto runs a different Python\n\n\n\n\n\n\nTerminal\n\nERROR: YAMLException: bad indentation of\na mapping entry (2:14)\n 2 | title: Quarto: a first look\n------------------^\n\n\n\nYAML error: read it from the top\n(2:14) is line 2, column 14: the second colon in the title\nPut the title in quotes to fix it\n\n\n\n\n\n\nTerminal\n\ncompilation failed- error\nUndefined control sequence.\nl.172 ...bad command: \\(\\notarealcommand\n\n\n\nLaTeX error: l.172 is a line in the generated .tex, not in your .qmd\nThe text after it comes from your file, so search your .qmd for it\n\n\n\nRender often, so the newest change is the likely culprit"
   },
   {
     "objectID": "lectures/lecture-11/11-more-quarto.html#when-quarto-uses-the-wrong-python",
@@ -7278,5 +7278,26 @@
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Did it work? Run quarto check",
     "text": "Did it work? Run quarto check\n\n\n\nTerminal\n\nquarto check\n\nQuarto 1.10.18\n[✓] Checking environment information...\n[✓] Checking versions of quarto binary dependencies...\n      Pandoc version 3.10: OK\n      Dart Sass version 1.101.0: OK\n[✓] Checking Quarto installation......OK\n      Version: 1.10.18\n[✓] Checking tools....................OK\n      TinyTeX: v2026.04\n[✓] Checking LaTeX....................OK\n[✓] Checking basic markdown render....OK\n[✓] Checking Python 3 installation....OK\n      Version: 3.13.13\n      Jupyter: 5.9.1\nRun this first when something breaks. Your versions may differ from mine"
+  },
+  {
+    "objectID": "lectures/lecture-11/11-more-quarto.html#markdown-syntax",
+    "href": "lectures/lecture-11/11-more-quarto.html#markdown-syntax",
+    "title": "DATASCI 350 - Data Science Computing",
+    "section": "Markdown syntax",
+    "text": "Markdown syntax\n\n\n\n\n\n\n\nYou type\nYou get\n\n\n\n\n**bold**, *italic*\nbold, italic\n\n\n~~scratch that~~\nscratch that\n\n\n[text](url)\na link\n\n\n![caption](img.png)\nan image\n\n\n`code`\ncode\n\n\n&gt; quote\na blockquote\n\n\n2^10^, H~2~O\n210, H2O\n\n\nfootnote[^1]\na numbered footnote\n\n\n\n\n\n\nTables use pipes and dashes. Colons set the alignment\n\n\n| Left | Centre | Right |\n|:-----|:------:|------:|\n| a    | b      | c     |\n\n\nMaths is LaTeX between dollar signs: $\\mu = \\frac{1}{n}\\sum x_i$ inline, $$ ... $$ for display\nSymbols: LaTeX Wiki. Everything else: Markdown Guide\nThat is most of the language. Markdown is small on purpose"
+  },
+  {
+    "objectID": "lectures/lecture-11/11-more-quarto.html#raw-and-rendered-markdown",
+    "href": "lectures/lecture-11/11-more-quarto.html#raw-and-rendered-markdown",
+    "title": "DATASCI 350 - Data Science Computing",
+    "section": "Raw and rendered Markdown",
+    "text": "Raw and rendered Markdown\n\n\n\n# Heading 1\n\nThis is a paragraph[^1].\n\n## Heading 2\n\nThis is *italic*, this is `code`,\nthis is ~~strikethrough~~.\n\nThis is a [link](https://www.emory.edu).\nEquation: $\\mu = \\frac{1}{n} \\sum_{i=1}^{n} x_i$\n\nList:\n\n- Item 1\n- Item 2\n  - Subitem 1\n\n[^1]: This is a footnote.\n\n| Header 1 | Header 2 | Header 3 |\n|:---------|:--------:|---------:|\n| Cell 1   | Cell 2   | Cell 3   |\n\nHeading 1\nThis is a paragraph1.\nHeading 2\nThis is italic, this is code, this is strikethrough.\nThis is a link. Equation: \\(\\mu = \\frac{1}{n} \\sum_{i=1}^{n} x_i\\)\nList:\n\nItem 1\nItem 2\n\nSubitem 1\n\n\n\n\n\nHeader 1\nHeader 2\nHeader 3\n\n\n\n\nCell 1\nCell 2\nCell 3\n\n\n\n\n\nThis is a footnote."
+  },
+  {
+    "objectID": "lectures/lecture-11/11-more-quarto.html#cross-references-with",
+    "href": "lectures/lecture-11/11-more-quarto.html#cross-references-with",
+    "title": "DATASCI 350 - Data Science Computing",
+    "section": "Cross-references with @",
+    "text": "Cross-references with @\n\n\n\nA citation points outside your document; a cross-reference points inside it. Label the chunk, then use the label:\n```{python}\n#| label: fig-rain\n#| fig-cap: \"Monthly rainfall in Atlanta\"\nplt.plot(month, rain)\n```\n\nRainfall peaks in March (@fig-rain).\nThe last line renders as Rainfall peaks in March (Figure 1)\nTables take the label underneath, after a colon:\n\n| City     | Population |\n|:---------|-----------:|\n| Atlanta  |    498,715 |\n| Savannah |    147,780 |\n\n: Two cities {#tbl-cities}\n\n\n\n\nThe prefix tells Quarto what it numbers: fig-, tbl-, eq-, sec-, lst-\nWith no prefix (label: rainfall), the caption has no number\nAnd @rainfall prints “(rainfall?)” with a citation warning\n@sec- also needs number-sections: true in the YAML\n[-@fig-rain] prints the bare number, for use inside brackets\nAdd a figure mid-document and every number updates, in captions and text\nThe same labels work in HTML and PDF\n\n\nSo never number by hand. A typed “Figure 3” is wrong once you add a Figure 2"
   }
 ]
