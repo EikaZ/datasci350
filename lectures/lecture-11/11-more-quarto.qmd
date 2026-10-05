@@ -996,7 +996,7 @@ Download the report and run it from the terminal.
 3. Render the file with no options. You get Brazil
 4. Render it again for Japan. Give the output its own file name
 5. Open both HTML files. The heading, table and chart changed
-6. Render one more country whose name contains a space (e.g, "South Africa"). Give it its own file name, too
+6. Render one more country whose name contains a space (e.g., "South Africa"). Give it its own file name, too
 :::
 
 :::{.column width="45%"}
