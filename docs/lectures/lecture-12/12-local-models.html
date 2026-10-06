@@ -272,9 +272,6 @@ Danilo Freire
 <li>Hallucination and bias, on a model you can inspect</li>
 </ul>
 </div></div>
-<div style="background: rgba(230, 57, 70, 0.1); padding: 15px; border-radius: 10px; font-size: 20px; margin-top: 25px;">
-<p>Every output here comes from a real session on my laptop. When the model says something odd, that is <span class="alert">what it actually said</span></p>
-</div>
 </div>
 </section></section>
 <section>
@@ -289,19 +286,17 @@ Danilo Freire
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>An LLM is a <a href="https://en.wikipedia.org/wiki/Neural_network_(machine_learning)">neural network</a> built on the <a href="https://arxiv.org/pdf/1706.03762">Transformer architecture</a></li>
-<li>That is the T in GPT: Generative Pre-trained Transformer</li>
-<li><a href="https://en.wikipedia.org/wiki/Perceptron">Neural networks</a> date from the 1950s; <a href="https://arxiv.org/abs/1706.03762">the Transformer</a> from 2017. What changed recently is <span class="alert">cheap data and fast GPUs</span></li>
-<li>Training means reading huge amounts of text and learning to guess <span class="alert">the next word</span></li>
-<li>That is <span class="alert">next-token prediction</span>, the core engine</li>
-<li>Chat models get a second round of training on conversations and human ratings (<a href="https://huggingface.co/blog/rlhf">RLHF</a>), which is why they follow instructions</li>
+<li>An LLM is a <a href="https://en.wikipedia.org/wiki/Neural_network_(machine_learning)">neural network</a> built on the <a href="https://arxiv.org/pdf/1706.03762">Transformer architecture</a>, the T in GPT (Generative Pre-trained Transformer)</li>
+<li><a href="https://en.wikipedia.org/wiki/Perceptron">Neural networks</a> date from the 1950s, <a href="https://arxiv.org/abs/1706.03762">the Transformer</a> from 2017. What changed recently is <span class="alert">cheap data and fast GPUs</span></li>
+<li>Training means reading huge amounts of text and learning to guess <span class="alert">the next token</span></li>
+<li>Chat models then train on conversations and human ratings (<a href="https://huggingface.co/blog/rlhf">RLHF</a>), so they follow instructions</li>
 <li>The model does not plan a sentence. It picks one token, adds it to the text, and picks again</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div style="text-align: center; margin-top: -40px;">
 <p><a href="#/" data-modal-type="image" data-modal-url="figures/llm-prediction-word.png"><img data-src="figures/llm-prediction-word.png" style="width:100.0%"></a></p>
 <div style="font-size: 18px; margin-bottom: 15px;">
-<p>One token at a time, each guess added to the text before the next one</p>
+<p>One token at a time</p>
 </div>
 <p><a href="#/" data-modal-type="image" data-modal-url="figures/wolfram.png"><img data-src="figures/wolfram.png" style="width:85.0%"></a></p>
 <div style="font-size: 18px;">
@@ -320,10 +315,10 @@ Danilo Freire
 <ul>
 <li>Remember <a href="https://danilofreire.github.io/datasci350/lectures/lecture-02/02-computational-literacy.html">lecture 02</a>: <span class="alert">computers only understand numbers</span></li>
 <li>Type “Hello, how are you?” and GPT-2 sees <code>[15496, 11, 703, 389, 345, 30]</code></li>
-<li>Turning text into numbers is easy. Keeping <span class="alert">the meaning</span> is the hard part</li>
+<li>Turning text into numbers is easy, but keeping <span class="alert">the meaning</span> is hard</li>
 <li><span class="alert">Tokenisation</span> breaks the text into pieces</li>
-<li><span class="alert">Embeddings</span> turn each piece into a vector, where meaning lives</li>
-<li>Both appear as <span class="alert">fields in the model file</span> you download in half an hour</li>
+<li><span class="alert">Embeddings</span> turn each piece into a vector that carries its meaning</li>
+<li>Both are <span class="alert">fields in the model file</span> you download in half an hour</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div style="text-align: center; margin-top: -50px;">
@@ -341,7 +336,7 @@ Danilo Freire
 <ul>
 <li>A <span class="alert">token</span> is the smallest unit a model reads. It is <span class="alert">not always a word</span></li>
 <li>It can be a word (“hello”), part of one (“un” + “believ” + “able”), punctuation or a space</li>
-<li>Spaces usually attach to the next word, so ” hello” and “hello” are different tokens</li>
+<li>Spaces usually attach to the next word, so <code>" hello"</code> (with a space) and <code>"hello"</code> (without) are different tokens</li>
 <li>For English: <span class="alert">1 token ≈ 4 characters</span>, and <span class="alert">100 tokens ≈ 75 words</span></li>
 <li>Other languages may need <span class="alert">more tokens</span> for the same sentence</li>
 <li>Let’s count the tokens in “Hello, it’s Danilo here!” with <a href="https://platform.openai.com/tokenizer">OpenAI’s tokeniser</a></li>

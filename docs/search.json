@@ -3574,28 +3574,28 @@
     "href": "lectures/lecture-12/12-local-models.html#lecture-overview",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "Lecture overview",
-    "text": "Lecture overview\nWhat we will cover today\n\n\n\n1. What is inside the file\n\nHow a model reads text (as numbers)\nTokens, then embeddings, where meaning becomes geometry\n\n2. A model is a file\n\nOllama: download one, run it, inspect it\nQuantisation, RAM, and what your laptop can hold\n\n\n3. Build your own chatbot\n\nSystem prompts, temperature, and the Modelfile\nI build a butler on screen; you build another\n\n4. Where it breaks\n\nHallucination and bias, on a model you can inspect\n\n\n\nEvery output here comes from a real session on my laptop. When the model says something odd, that is what it actually said"
+    "text": "Lecture overview\nWhat we will cover today\n\n\n\n1. What is inside the file\n\nHow a model reads text (as numbers)\nTokens, then embeddings, where meaning becomes geometry\n\n2. A model is a file\n\nOllama: download one, run it, inspect it\nQuantisation, RAM, and what your laptop can hold\n\n\n3. Build your own chatbot\n\nSystem prompts, temperature, and the Modelfile\nI build a butler on screen; you build another\n\n4. Where it breaks\n\nHallucination and bias, on a model you can inspect"
   },
   {
     "objectID": "lectures/lecture-12/12-local-models.html#what-are-llms",
     "href": "lectures/lecture-12/12-local-models.html#what-are-llms",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "What are LLMs?",
-    "text": "What are LLMs?\nA quick introduction\n\n\n\n\nAn LLM is a neural network built on the Transformer architecture\nThat is the T in GPT: Generative Pre-trained Transformer\nNeural networks date from the 1950s; the Transformer from 2017. What changed recently is cheap data and fast GPUs\nTraining means reading huge amounts of text and learning to guess the next word\nThat is next-token prediction, the core engine\nChat models get a second round of training on conversations and human ratings (RLHF), which is why they follow instructions\nThe model does not plan a sentence. It picks one token, adds it to the text, and picks again\n\n\n\n\n\nOne token at a time, each guess added to the text before the next one\n\n\n\nA longer introduction: Stephen Wolfram on what ChatGPT is doing"
+    "text": "What are LLMs?\nA quick introduction\n\n\n\n\nAn LLM is a neural network built on the Transformer architecture, the T in GPT (Generative Pre-trained Transformer)\nNeural networks date from the 1950s, the Transformer from 2017. What changed recently is cheap data and fast GPUs\nTraining means reading huge amounts of text and learning to guess the next token\nChat models then train on conversations and human ratings (RLHF), so they follow instructions\nThe model does not plan a sentence. It picks one token, adds it to the text, and picks again\n\n\n\n\n\nOne token at a time\n\n\n\nA longer introduction: Stephen Wolfram on what ChatGPT is doing"
   },
   {
     "objectID": "lectures/lecture-12/12-local-models.html#the-translation-problem",
     "href": "lectures/lecture-12/12-local-models.html#the-translation-problem",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "The translation problem",
-    "text": "The translation problem\nLLMs don’t read English!\n\n\n\n\nRemember lecture 02: computers only understand numbers\nType “Hello, how are you?” and GPT-2 sees [15496, 11, 703, 389, 345, 30]\nTurning text into numbers is easy. Keeping the meaning is the hard part\nTokenisation breaks the text into pieces\nEmbeddings turn each piece into a vector, where meaning lives\nBoth appear as fields in the model file you download in half an hour"
+    "text": "The translation problem\nLLMs don’t read English!\n\n\n\n\nRemember lecture 02: computers only understand numbers\nType “Hello, how are you?” and GPT-2 sees [15496, 11, 703, 389, 345, 30]\nTurning text into numbers is easy, but keeping the meaning is hard\nTokenisation breaks the text into pieces\nEmbeddings turn each piece into a vector that carries its meaning\nBoth are fields in the model file you download in half an hour"
   },
   {
     "objectID": "lectures/lecture-12/12-local-models.html#what-is-a-token",
     "href": "lectures/lecture-12/12-local-models.html#what-is-a-token",
     "title": "DATASCI 350 - Data Science Computing",
     "section": "What is a token?",
-    "text": "What is a token?\nThe basic unit of LLM processing\n\n\n\n\nA token is the smallest unit a model reads. It is not always a word\nIt can be a word (“hello”), part of one (“un” + “believ” + “able”), punctuation or a space\nSpaces usually attach to the next word, so ” hello” and “hello” are different tokens\nFor English: 1 token ≈ 4 characters, and 100 tokens ≈ 75 words\nOther languages may need more tokens for the same sentence\nLet’s count the tokens in “Hello, it’s Danilo here!” with OpenAI’s tokeniser\n\n\n\n\nSource: OpenAI Tokenizer"
+    "text": "What is a token?\nThe basic unit of LLM processing\n\n\n\n\nA token is the smallest unit a model reads. It is not always a word\nIt can be a word (“hello”), part of one (“un” + “believ” + “able”), punctuation or a space\nSpaces usually attach to the next word, so \" hello\" (with a space) and \"hello\" (without) are different tokens\nFor English: 1 token ≈ 4 characters, and 100 tokens ≈ 75 words\nOther languages may need more tokens for the same sentence\nLet’s count the tokens in “Hello, it’s Danilo here!” with OpenAI’s tokeniser\n\n\n\n\nSource: OpenAI Tokenizer"
   },
   {
     "objectID": "lectures/lecture-12/12-local-models.html#why-use-tokens-instead-of-words",

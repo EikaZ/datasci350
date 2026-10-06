@@ -77,9 +77,6 @@ No account, API key or monthly fee. No internet once the file is on disk
 :::
 :::
 
-:::{style="background: rgba(230, 57, 70, 0.1); padding: 15px; border-radius: 10px; font-size: 20px; margin-top: 25px;"}
-Every output here comes from a real session on my laptop. When the model says something odd, that is [what it actually said]{.alert}
-:::
 :::
 
 # What is inside the file? {background-color="#1B3A6B"}
@@ -90,12 +87,10 @@ Every output here comes from a real session on my laptop. When the model says so
 :::{style="margin-top: 30px; font-size: 23px;"}
 :::{.columns}
 :::{.column width="50%"}
-- An LLM is a [neural network](https://en.wikipedia.org/wiki/Neural_network_(machine_learning)) built on the [Transformer architecture](https://arxiv.org/pdf/1706.03762)
-- That is the T in GPT: Generative Pre-trained Transformer
-- [Neural networks](https://en.wikipedia.org/wiki/Perceptron) date from the 1950s; [the Transformer](https://arxiv.org/abs/1706.03762) from 2017. What changed recently is [cheap data and fast GPUs]{.alert}
-- Training means reading huge amounts of text and learning to guess [the next word]{.alert}
-- That is [next-token prediction]{.alert}, the core engine
-- Chat models get a second round of training on conversations and human ratings ([RLHF](https://huggingface.co/blog/rlhf)), which is why they follow instructions
+- An LLM is a [neural network](https://en.wikipedia.org/wiki/Neural_network_(machine_learning)) built on the [Transformer architecture](https://arxiv.org/pdf/1706.03762), the T in GPT (Generative Pre-trained Transformer)
+- [Neural networks](https://en.wikipedia.org/wiki/Perceptron) date from the 1950s, [the Transformer](https://arxiv.org/abs/1706.03762) from 2017. What changed recently is [cheap data and fast GPUs]{.alert}
+- Training means reading huge amounts of text and learning to guess [the next token]{.alert}
+- Chat models then train on conversations and human ratings ([RLHF](https://huggingface.co/blog/rlhf)), so they follow instructions
 - The model does not plan a sentence. It picks one token, adds it to the text, and picks again
 :::
 
@@ -104,7 +99,7 @@ Every output here comes from a real session on my laptop. When the model says so
 [![](figures/llm-prediction-word.png){width="100%"}](#){data-modal-type="image" data-modal-url="figures/llm-prediction-word.png"}
 
 :::{style="font-size: 18px; margin-bottom: 15px;"}
-One token at a time, each guess added to the text before the next one
+One token at a time
 :::
 
 [![](figures/wolfram.png){width="85%"}](#){data-modal-type="image" data-modal-url="figures/wolfram.png"}
@@ -125,10 +120,10 @@ A longer introduction: [Stephen Wolfram on what ChatGPT is doing](https://writin
 :::{.column width="55%"}
 - Remember [lecture 02](https://danilofreire.github.io/datasci350/lectures/lecture-02/02-computational-literacy.html): [computers only understand numbers]{.alert}
 - Type "Hello, how are you?" and GPT-2 sees `[15496, 11, 703, 389, 345, 30]`
-- Turning text into numbers is easy. Keeping [the meaning]{.alert} is the hard part
+- Turning text into numbers is easy, but keeping [the meaning]{.alert} is hard
 - [Tokenisation]{.alert} breaks the text into pieces
-- [Embeddings]{.alert} turn each piece into a vector, where meaning lives
-- Both appear as [fields in the model file]{.alert} you download in half an hour
+- [Embeddings]{.alert} turn each piece into a vector that carries its meaning
+- Both are [fields in the model file]{.alert} you download in half an hour
 :::
 
 :::{.column width="45%"}
@@ -147,7 +142,7 @@ A longer introduction: [Stephen Wolfram on what ChatGPT is doing](https://writin
 :::{.column width="55%"}
 - A [token]{.alert} is the smallest unit a model reads. It is [not always a word]{.alert}
 - It can be a word ("hello"), part of one ("un" + "believ" + "able"), punctuation or a space
-- Spaces usually attach to the next word, so " hello" and "hello" are different tokens
+- Spaces usually attach to the next word, so `" hello"` (with a space) and `"hello"` (without) are different tokens
 - For English: [1 token ≈ 4 characters]{.alert}, and [100 tokens ≈ 75 words]{.alert}
 - Other languages may need [more tokens]{.alert} for the same sentence
 - Let's count the tokens in "Hello, it's Danilo here!" with [OpenAI's tokeniser](https://platform.openai.com/tokenizer)
