@@ -19,7 +19,7 @@ editor:
   render-on-save: true
 ---
 
-# I hope you're having a lovely day! 😊 {background-color="#1B3A6B"}
+# I hope you're having a great day! 😊 {background-color="#1B3A6B"}
 
 ## Recap of last class
 
@@ -230,7 +230,7 @@ Source: [TensorFlow Projector](https://projector.tensorflow.org/)
 :::{style="margin-top: 30px; font-size: 22px;"}
 :::{.columns}
 :::{.column width="55%"}
-- The most famous result here: [king − man + woman ≈ queen]{.alert} ([Mikolov, Yih and Zweig, 2013](https://aclanthology.org/N13-1090/))
+- [king − man + woman ≈ queen]{.alert} ([Mikolov, Yih and Zweig, 2013](https://aclanthology.org/N13-1090/))
 - Take "king", subtract "man", add "woman", and the nearest word, apart from "king" itself, is "queen" ([Nissim, van Noord and van der Goot, 2020](https://aclanthology.org/2020.cl-2.7/))
 - No one taught the model this relationship. It [emerged from the geometry]{.alert}
 - It works elsewhere too ([Mikolov et al., 2013](https://arxiv.org/abs/1301.3781)):
@@ -247,11 +247,9 @@ Source: [TensorFlow Projector](https://projector.tensorflow.org/)
 Source: [Wikipedia](https://en.wikipedia.org/wiki/Word2vec)
 
 :::{style="background: rgba(230, 57, 70, 0.1); padding: 15px; border-radius: 10px; font-size: 18px; margin-top: 20px;"}
-The maths behind it:
-
 $\vec{\text{king}} - \vec{\text{man}} + \vec{\text{woman}} \approx \vec{\text{queen}}$
 
-Semantic relationships encoded as [vector operations]{.alert}!
+Relationships between meanings become [vector operations]{.alert}
 :::
 :::
 :::
