@@ -316,7 +316,6 @@ Suggested references:
 
 - Lecture 13: [Quiz 02: Reproducible Research and Quarto (6%)](https://github.com/danilofreire/datasci350-quiz02/). Covers Lectures 10 and 11.
 - **Assignment 05 due (5%).**
-- [**Assignment 06**](https://github.com/danilofreire/datasci350/blob/main/assignments/06-assignment.ipynb).
 
 ### October 13, 2026: Fall Break (No Classes)
 
@@ -324,6 +323,7 @@ Suggested references:
 ### October 15, 2026:
 
 - Lecture 14: [Calling Models from Your Own Code](https://danilofreire.github.io/datasci350/lectures/lecture-14/14-ai.html).
+- [**Assignment 06**](https://github.com/danilofreire/datasci350/blob/main/assignments/06-assignment.ipynb).
 
 Note: create a free [OpenRouter](https://openrouter.ai/) account and API key before this class, and set the key's spending limit to $0.00. The steps are in the lecture README.
 
